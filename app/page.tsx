@@ -123,11 +123,11 @@ export default function Page() {
   return (
     <section>
       <h1 className="font-semibold text-2xl mb-4 tracking-tighter">
-        hey, I'm umar 👋
+        hey, I&apos;m umar 👋
       </h1>
       <p className="mb-8">
-        I'm a software engineer and community founder. I currently work as an
-        engineer at NearForm (formerly Formidable), Where i help our clients
+        I&apos;m a software engineer and community founder. I currently work as
+        an engineer at NearForm (formerly Formidable), Where i help our clients
         build modern web applications and websites.
       </p>
       <h2 className="font-semibold text-2xl mb-4 tracking-tighter underline underline-offset-2">
@@ -157,7 +157,7 @@ export default function Page() {
         })}
       </ul>
       <h2 className="font-semibold text-2xl mb-4 tracking-tighter underline underline-offset-2">
-        let's connect.
+        let&apos;s connect.
       </h2>
       <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
         <li>
