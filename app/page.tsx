@@ -1,113 +1,199 @@
-import Image from 'next/image'
+import Link from 'next/link';
 
-export default function Home() {
+function ArrowIcon() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+const PROJECTS: {
+  title: string;
+  description: string;
+  href: string;
+}[] = [
+  {
+    title: 'Puma',
+    description: 'Next.js, GraphQL, Sanity, Cloudinary',
+    href: 'https://uk.puma.com/uk/en',
+  },
+  {
+    title: 'Naturkompaniet',
+    description: 'Next.js, Sanity',
+    href: 'https://www.naturkompaniet.no/no/',
+  },
+  {
+    title: 'Wine for good',
+    description: 'Shopify, Theme Development',
+    href: 'https://wineforgood.ie/',
+  },
+  {
+    title: 'Absolute drinks',
+    description: 'Shopify, Theme Development',
+    href: 'https://absolutedrinks.net/',
+  },
+  {
+    title: 'Apopo',
+    description: 'Pimcore, Symfony',
+    href: 'https://www.apopo.org/',
+  },
+  {
+    href: 'https://atticwomenswear.com/',
+    title: 'Attic Womenswear',
+    description: 'Shopify, Theme Development',
+  },
+  {
+    href: 'https://cannycoffee.com/',
+    title: 'Canny Coffee',
+    description: 'Shopify, Theme Development',
+  },
+  {
+    href: 'http://deendevelopers.com/',
+    title: 'Deen Developers',
+    description: 'Next.js',
+  },
+  {
+    href: 'https://www.gatherdigital.co.uk/',
+    title: 'Gather Digital',
+    description: 'Pimcore, Symfony',
+  },
+  {
+    href: 'https://us.hotelchocolat.com/',
+    title: 'Hotel Chocolat',
+    description: 'Shopify, Theme Development',
+  },
+  {
+    href: 'https://www.icelolly.com/',
+    title: 'Icelolly',
+    description: 'Custom Framework, React, Node.js',
+  },
+  {
+    href: 'https://intouchnetworks.com/en-gb',
+    title: 'Intouch Networks',
+    description: 'Nuxt.js, Wordpress',
+  },
+  {
+    href: 'https://www.na-software.co.uk/',
+    title: 'NA Software',
+    description: 'Wordpress',
+  },
+  {
+    href: 'https://www.obrienswine.ie/',
+    title: "O'Briens Wine",
+    description: 'Shopify, Custom Theme Development',
+  },
+  {
+    href: 'https://www.pinseeker.co.uk/',
+    title: 'Pinseeker',
+    description: 'Pimcore, Symfony',
+  },
+  {
+    href: 'https://quran.cafe/',
+    title: 'Quran Cafe',
+    description: 'Next.js, Supabase',
+  },
+  {
+    href: 'https://gb.slendertone.com/',
+    title: 'Slendertone',
+    description: 'Shopify, Custom Theme Development',
+  },
+  {
+    href: 'https://uk.trtltravel.com/',
+    title: 'Trtl Travel',
+    description: 'Shopify, Custom Theme Development',
+  },
+  {
+    href: 'https://apps.apple.com/gb/app/elm-app/id1565557127/',
+    title: 'East London Mosque',
+    description: 'React Native, Expo, Firebase',
+  },
+];
+
+export default function Page() {
+  return (
+    <section>
+      <h1 className="font-semibold text-2xl mb-4 tracking-tighter">
+        hey, I'm umar 👋
+      </h1>
+      <p className="mb-8">
+        I'm a software engineer and community founder. I currently work as an
+        engineer at NearForm (formerly Formidable), Where i help our clients
+        build modern web applications and websites.
+      </p>
+      <h2 className="font-semibold text-2xl mb-4 tracking-tighter underline underline-offset-2">
+        projects.
+      </h2>
+      <ul className="mb-8">
+        {PROJECTS.map((project) => {
+          return (
+            <li key={project.title}>
+              <Link
+                className="flex flex-col space-y-1 mb-4"
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="w-full flex flex-col">
+                  <p className="text-neutral-900 dark:text-neutral-100 tracking-tight text-xl">
+                    {project.title}
+                  </p>
+                  <p className="text-neutral-600 dark:text-neutral-400 text-xs">
+                    {project.description}
+                  </p>
+                </div>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+      <h2 className="font-semibold text-2xl mb-4 tracking-tighter underline underline-offset-2">
+        let's connect.
+      </h2>
+      <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
+        <li>
           <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
+            className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
             rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.deendevelopers.com/"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+            <ArrowIcon />
+            <p className="h-7 ml-2">deen developers</p>
           </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+        </li>
+        <li>
+          <a
+            className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://twitter.com/umarrgora"
+          >
+            <ArrowIcon />
+            <p className="h-7 ml-2">twitter</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.linkedin.com/in/umar-gora-34a810a7/"
+          >
+            <ArrowIcon />
+            <p className="h-7 ml-2">linkedin</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+  );
 }
