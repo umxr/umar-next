@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { Analytics } from '@vercel/analytics/react';
+import { Navbar } from './components';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://umar.codes'),
@@ -35,10 +36,6 @@ export const metadata: Metadata = {
     title: 'Umar Gora',
     card: 'summary_large_image',
   },
-  verification: {
-    // google: 'eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw',
-    // yandex: '14d2e73487fa6c71',
-  },
 };
 
 export default function RootLayout({
@@ -57,6 +54,7 @@ export default function RootLayout({
     >
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+          <Navbar />
           {children}
           <Analytics />
         </main>
